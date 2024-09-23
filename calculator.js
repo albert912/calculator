@@ -77,7 +77,7 @@ function operate(func, a, b) {
 
 
 
-//STEP 5.b = create  a variable to store the display value.
+//STEP 5.b = create a variable to store the display value.
 
 
 
