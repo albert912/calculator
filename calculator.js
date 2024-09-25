@@ -21,45 +21,18 @@ function divide(a, b) {
 
 }
 
-//function add() {
+//STEP 2
 
-    //let firstnumber = a;
 
-    //let operator = +;
+    let firstNum;
+    
+    let secondNum;
 
-    //let secondnumber = b;
+    let operator;
 
-//}
+  
 
-//function subtract() {
 
-   // let firstnumber = a;
-
-   // let operator = -;
-
-    //let secondnumber = b;
-
-//}
-
-//function multiply() {
-
-   // let firstnumber = a;
-
-   // let operator = *;
-
-  //  let secondnumber = b;
-
-//}
-
-//function divide() {
-
-   // let firstnumber = a;
-
-   // let operator = /;
-
-   // let secondnumber = b;
-
-//}
 
 
 // STEP 3 ?
@@ -75,9 +48,49 @@ function operate(func, a, b) {
 
 // STEP 5.a = create a click event listener and find a way to display the numbers --- click --> textContent --> parseInt/parseFloat()
 
+const disp = document.querySelector(".display");
+
+
+const clr = document.querySelector(".clear");
+
+clr.addEventListener("click", () => {
+
+   disp.textContent = "0";
+});
+
+
+
+const buttons = document.querySelectorAll("button[id]");
+
+
+ buttons.forEach(function (element) {
+
+   element.addEventListener("click", function () {
+
+     if ( disp.textContent === "0") {
+ 
+
+      disp.textContent = " ";
+     }
+         
+
+      disp.textContent += element.id;
+
 
 
 //STEP 5.b = create a variable to store the display value.
+
+
+      let value = disp.textContent;
+
+   });
+
+
+
+});
+
+
+
 
 
 
