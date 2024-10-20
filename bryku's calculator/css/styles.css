@@ -1,0 +1,82 @@
+:root{
+	--input-height: 40px;
+	--buttons-height: 260px;
+}
+body{
+	margin: 0px;
+	width: 100%;
+	height: 100vh;
+	height: 100dvh;
+	background: #2e2e2e;
+	display: grid;
+	place-items: center;
+}
+#calculator{
+	width: 100%;
+	max-width: 500px;
+	height: 100%;
+	max-height: 800px;
+	background: #000000;
+	overflow: hidden;
+}
+#calculator side{
+	display: block;
+	height: calc(100% - var(--input-height) - var(--buttons-height));
+	background: #000000;
+	color: #ffffff;
+	overflow-y: scroll;
+	padding: 1rem;
+	box-sizing: border-box;
+    scrollbar-width: auto;
+    scrollbar-color: #ffffff #000000;
+}
+#calculator side::-webkit-scrollbar{width: 16px;}
+#calculator side::-webkit-scrollbar-track{background: #000000;}
+#calculator side::-webkit-scrollbar-thumb{
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+#calculator side div{border-bottom: 1px solid #000000; margin-bottom: .25rem;}
+#calculator side div:hover{border-bottom: 1px solid #ffffff;}
+#calculator side div span{float: right; font-weight: bold;}
+#calculator textarea{
+	display: block;
+	box-sizing: border-box;
+	height: var(--input-height);
+	width: 100%;
+	background: #ffffff;
+	resize: none;
+	border: 1px solid #000000;
+	padding: .6rem;
+	overflow: hidden;
+}
+#calculator textarea:focus{outline: none;}
+#calculator main{
+	display: grid;
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-columns: 1fr;
+	box-sizing: border-box;
+	height: var(--buttons-height);
+	background: #000000;
+}
+#calculator main div{
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(4, 1fr);
+}
+#calculator main div button{
+	border: 1px solid #000000; 
+	background: #efefef;
+	font-weight: bold;
+	font-size: 1.25rem;
+	transition: all .3s;
+}
+#calculator main div button:focus{outline: none;}
+#calculator main div button:hover{background: #cfcfcf; cursor: pointer;}
+#calculator main div button:last-child{background: #fb8424;}
+#calculator main div button:last-child:hover{background: #e37720;}
+#calculator main div:nth-child(1) button:nth-child(1){grid-column: 1/4; background: #fc3058;}
+#calculator main div:nth-child(1) button:nth-child(1):hover{background: #c43651;}
+#calculator main div:nth-child(5) button:nth-child(1){grid-column: 1/3;}
+

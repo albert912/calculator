@@ -24,16 +24,16 @@ function divide(a, b) {
 //STEP 2
 
 
-    let firstNum;
+    let firstNum = " ";
     
-    let secondNum;
+    let secondNum = " ";
 
-    let operator;
+    let operator = " ";
 
   
 
 
-
+    
 
 // STEP 3 ?
 function operate(func, a, b) {
@@ -60,10 +60,19 @@ clr.addEventListener("click", () => {
 
 
 
-const buttons = document.querySelectorAll("button[id]");
+     
+ 
+
+const buttons = document.querySelectorAll(".number");
+
+
+
 
 
  buttons.forEach(function (element) {
+
+   let firstno = element.textContent;
+  
 
    element.addEventListener("click", function () {
 
@@ -73,22 +82,82 @@ const buttons = document.querySelectorAll("button[id]");
       disp.textContent = " ";
      }
          
+     let firstno = element.textContent;
+  
+     disp.textContent += firstno;
 
-      disp.textContent += element.id;
-
+   
+   console.log(disp.textContent);
 
 
 //STEP 5.b = create a variable to store the display value.
 
+  //let value = disp.value;
 
-      let value = disp.textContent;
+ 
+
 
    });
+
+   let storeone = disp.textContent;
+    
+   console.log(storeone);
 
 
 
 });
 
+//STEP 5 = Extra, event listeners operators
+
+const dvd = document.querySelector("divide");
+
+const mlt = document.querySelector("multiply");
+
+const subt = document.querySelector("subtract");
+
+const ad = document.querySelector("add");
+
+const equ = document.querySelector("equal");
+
+//Division
+
+dvd.addEventListener("click", function () {
+
+
+function divide(a, b) {
+
+    return a/b;
+
+}
+
+});
+
+
+
+
+
+    
+
+
+
+
+// STEP 6
+
+// a. You’ll need to store the first number and second number that are input into the calculator
+
+//I don't really remeber how I did this in the past, but I might have used something that would tell me whether it's the first or second number I'm storing !
+
+
+
+
+
+//b. utilize the operator that the user selects
+
+
+
+
+
+//c. and then operate() on the two numbers when the user presses the “=” key.
 
 
 
