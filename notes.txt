@@ -1,0 +1,67 @@
+operator action progress
+
+(My thinking) 1. I need to enter the first number:
+
+2. I need to click on operator.
+
+3. I need to enter second number.
+
+4. I need to click equal sign so that the result would be shown on the calculator display. 
+
+----
+
+Soo it looks like when I enter the second number after I click the operator, the result should be stored in variable, and when I click equal sign, this variable name should be used to shown the result on the calculator display.
+
+
+-------
+
+Problems related to first method.
+
+I realized that when created for functions under event delegation I didn't know how to store the second number and I was stucked.
+
+I may clear the first number when I click the operators, but I am not sure how to proceed after this. From what I realized I need to calculate and display the result by clicking equal sign (=) not via clicking the operators.
+
+-------
+
+SECOND METHOD
+
+when you use a calculator, after inputing the firstOperand and you click the operator and that clears  the screen so you can input the secondOperand.
+
+save the firtOperand when Operator was clicked, the next inputed nums save on the secondOperand.
+
+-----
+
+Actions that must happen when I click the operator
+
+1. First Number should be deleted.
+
+2. First Number should be saved ( I assume that it should be stored in a variable).
+
+---
+
+The next inputed nums (second number) should be saved in a variable.
+
+-----------
+
+Steps according to my last algorithm logic.
+
+a. first number should be entered and it should be displayed. 
+
+b. a specific operator should be clicked.
+
+b.1. first number should be deleted when I click on operators.
+
+b.2. first number should be saved in a variable.
+
+b.3. the calculator should remember the specific operator that was chosen.
+
+c. second number should be entered it should be displayed.
+
+d. second number should be stored.
+
+e. two thing should happen after clicking equal sign
+
+ e.1. the result should be calculated by using the specific operator on b (b.3)
+
+ e.2. the result should be shown on the calculator display.
+

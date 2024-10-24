@@ -28,7 +28,7 @@ function divide(a, b) {
     
     let secondNum = " ";
 
-    let operator = " ";
+    let operator = "";
 
   
 
@@ -60,18 +60,14 @@ clr.addEventListener("click", () => {
 
 
 
-     
  
 
 const buttons = document.querySelectorAll(".number");
 
 
-
-
-
  buttons.forEach(function (element) {
 
-   let firstno = element.textContent;
+  
   
 
    element.addEventListener("click", function () {
@@ -80,72 +76,292 @@ const buttons = document.querySelectorAll(".number");
  
 
       disp.textContent = " ";
+
      }
          
-     let firstno = element.textContent;
+     let dispvalue = element.textContent;
   
-     disp.textContent += firstno;
+     disp.textContent += dispvalue;
+
+
 
    
    console.log(disp.textContent);
-
-
-//STEP 5.b = create a variable to store the display value.
-
-  //let value = disp.value;
 
  
 
 
    });
 
-   let storeone = disp.textContent;
-    
-   console.log(storeone);
-
-
-
+  
 });
-
-//STEP 5 = Extra, event listeners operators
-
-const dvd = document.querySelector("divide");
-
-const mlt = document.querySelector("multiply");
-
-const subt = document.querySelector("subtract");
-
-const ad = document.querySelector("add");
-
-const equ = document.querySelector("equal");
-
-//Division
-
-dvd.addEventListener("click", function () {
-
-
-function divide(a, b) {
-
-    return a/b;
-
-}
-
-});
-
-
-
-
-
-    
-
 
 
 
 // STEP 6
 
+
+
+
+const container = document.querySelector(".operand");
+
+
+container.addEventListener("click", function(event)  {
+
+ 
+  
+   let op = event.target.textContent;
+
+    operator += op;
+
+    console.log(operator);
+  
+    if (firstNum === " ") {
+
+    firstNum += disp.textContent;
+
+
+    console.log(firstNum);
+
+    }
+   
+
+    disp.textContent = "0";
+
+
+   });
+
+
+
+
+let equ = document.querySelector(".equal");
+
+
+
+
+equ.addEventListener("click", function() {
+
+
+
+
+if (firstNum !== " ") {
+
+
+secondNum += disp.textContent;
+
+console.log(secondNum);
+
+}
+
+
+
+function operate(firstNum,secondNum, operator) {
+
+
+
+   let result;
+
+   let firstnum = Number(firstNum);
+
+   let secondnum = Number(secondNum);
+
+
+if (operator === "+") {
+
+
+result = firstnum + secondnum;
+
+console.log (result);
+
+firstnum = 0;
+
+disp.textContent = "";
+
+firstnum += result;
+
+disp.textContent += firstnum;
+
+console.log(firstnum);
+
+
+
+}
+
+if (operator === "-") {
+
+   result = firstnum - secondnum;
+
+   console.log (result);
+   
+   firstnum = 0;
+   
+   disp.textContent = "";
+   
+   firstnum += result;
+   
+   disp.textContent += firstnum;
+   
+   console.log(firstnum);
+   
+
+}
+
+if (operator === "*") {
+
+   result = firstnum * secondnum;
+
+   console.log (result);
+   
+   firstnum = 0;
+   
+   disp.textContent = "";
+   
+   firstnum += result;
+   
+   disp.textContent += firstnum;
+   
+   console.log(firstnum);
+   
+
+
+}
+
+if (operator === "/") {
+
+   result = firstnum / secondnum;
+
+   console.log (result);
+   
+   firstnum = 0;
+   
+   disp.textContent = "";
+   
+   firstnum += result;
+   
+   disp.textContent += firstnum;
+   
+   console.log(firstnum);
+   
+
+
+}
+
+
+operate(firstNum, secondNum, operator);
+
+
+};
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //const opparent = document.querySelector(".opparent")
+
+
+ //opparent.addEventListener("click", (event) =>) {
+
+
+  // disp.textContent = " ";
+
+
+// });
+
+
+
+
+
+
+
+
+
+
+
+//const equ = document.querySelector(".equal");
+
+
+
+
+
+
+
+
+
+
+
+
+ //let storeone = disp.textContent;
+    
+   //console.log(storeone);
+
+
+
+
+
+
+//const ops = document.querySelectorAll(".operator");
+
+
+
+//ops.forEach(function (element) {
+
+
+//element.addEventListener("click", function () {
+
+   //disp.textContent = "0";
+
+
+
+//});
+
+//});
+
+
+
+
+
 // a. You’ll need to store the first number and second number that are input into the calculator
 
-//I don't really remeber how I did this in the past, but I might have used something that would tell me whether it's the first or second number I'm storing !
+
+
+
 
 
 
@@ -157,10 +373,14 @@ function divide(a, b) {
 
 
 
+
+
+
+
+
 //c. and then operate() on the two numbers when the user presses the “=” key.
 
 
+//STEP 5.b = create a variable to store the display value.
 
-
-
-
+  //let value = disp.value;
