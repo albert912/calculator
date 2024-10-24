@@ -292,7 +292,6 @@ operate(firstNum, secondNum, operator);
 
 
 
-
  //const opparent = document.querySelector(".opparent")
 
 
