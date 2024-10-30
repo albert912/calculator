@@ -32,11 +32,10 @@ function divide(a, b) {
 
   
 
-
     
 
 // STEP 3 ?
-function operate(func, a, b) {
+function operation(func, a, b) {
 
    return func(a,b);
 }
@@ -53,11 +52,70 @@ const disp = document.querySelector(".display");
 
 const clr = document.querySelector(".clear");
 
+const dcml = document.querySelector(".point");
+
+const bspace = document.querySelector(".backspace");
+
+
+dcml.addEventListener("click", () => {
+
+
+let text = disp.textContent;
+
+    if (!text.includes("."))
+   disp.textContent += ".";
+
+
+});
+
+
 clr.addEventListener("click", () => {
 
    disp.textContent = "0";
+
+   firstNum = " ";
+
+   secondNum = " ";
+
+   operator = "";
 });
 
+
+bspace.addEventListener('click', () => {
+   console.log('backspace clicked')
+
+   let text = disp.textContent
+
+   console.log('text', text)
+
+   let backspace = text.slice(0, -1)
+
+   console.log('updated text', backspace)
+
+
+  disp.textContent = backspace;
+ 
+
+//function baspace() {
+
+
+//return backspace;
+
+//};
+
+//baspace()
+
+
+});
+
+
+let result;
+
+let firstnum = Number(firstNum);
+
+let secondnum = Number(secondNum);
+
+result = firstnum + secondnum;
 
 
  
@@ -67,7 +125,7 @@ const buttons = document.querySelectorAll(".number");
 
  buttons.forEach(function (element) {
 
-  
+
   
 
    element.addEventListener("click", function () {
@@ -78,7 +136,18 @@ const buttons = document.querySelectorAll(".number");
       disp.textContent = " ";
 
      }
-         
+
+ 
+
+     if (result !== 0) {
+
+      disp.textContent = " ";
+
+   
+     }
+
+
+   
      let dispvalue = element.textContent;
   
      disp.textContent += dispvalue;
@@ -87,6 +156,13 @@ const buttons = document.querySelectorAll(".number");
 
    
    console.log(disp.textContent);
+
+
+
+  
+   
+
+
 
  
 
@@ -109,10 +185,24 @@ const container = document.querySelector(".operand");
 container.addEventListener("click", function(event)  {
 
  
+   if (operator !== "") {
+
+      return clickEvent();
+ 
+     }
+ 
   
    let op = event.target.textContent;
 
-    operator += op;
+
+   if (operator === "") {
+    
+      operator += op;
+
+
+   }
+
+ 
 
     console.log(operator);
   
@@ -124,9 +214,13 @@ container.addEventListener("click", function(event)  {
     console.log(firstNum);
 
     }
-   
+
 
     disp.textContent = "0";
+
+
+
+
 
 
    });
@@ -139,15 +233,20 @@ let equ = document.querySelector(".equal");
 
 
 
-equ.addEventListener("click", function() {
+equ.addEventListener("click", clickEvent);
+
+function clickEvent () {
+
+
 
 
 
 
 if (firstNum !== " ") {
 
+   
 
-secondNum += disp.textContent;
+secondNum = disp.textContent;
 
 console.log(secondNum);
 
@@ -155,99 +254,210 @@ console.log(secondNum);
 
 
 
-function operate(firstNum,secondNum, operator) {
+let result;
+
+let firstnum = Number(firstNum);
+
+let secondnum = Number(secondNum);
 
 
+function operate() {
 
-   let result;
-
-   let firstnum = Number(firstNum);
-
-   let secondnum = Number(secondNum);
-
-
-if (operator === "+") {
-
-
-result = firstnum + secondnum;
-
-console.log (result);
-
-firstnum = 0;
-
-disp.textContent = "";
-
-firstnum += result;
-
-disp.textContent += firstnum;
-
-console.log(firstnum);
-
-
-
-}
-
-if (operator === "-") {
-
-   result = firstnum - secondnum;
-
-   console.log (result);
    
-   firstnum = 0;
+
+  
    
+
+   if (operator === "+") {
+   
+   //calculates the result
+   result = firstnum + secondnum;
+   
+   console.log(result);
+   
+  
+   
+   //erases the second number on display
    disp.textContent = "";
    
-   firstnum += result;
+   //empties the operator so that multiple operators can be used
+   operator = "";
    
-   disp.textContent += firstnum;
-   
-   console.log(firstnum);
-   
-
-}
-
-if (operator === "*") {
-
-   result = firstnum * secondnum;
-
-   console.log (result);
-   
-   firstnum = 0;
-   
-   disp.textContent = "";
-   
-   firstnum += result;
-   
-   disp.textContent += firstnum;
-   
-   console.log(firstnum);
-   
+   // fixes the problem when clicking clear
+   firstNum = result;
 
 
-}
-
-if (operator === "/") {
-
-   result = firstnum / secondnum;
-
-   console.log (result);
+   //scores the result to firstnum so that further calculation should be done by clicking multiple operators
+   firstnum = result;
    
-   firstnum = 0;
+   let firsty = result.toString();
    
-   disp.textContent = "";
    
-   firstnum += result;
    
-   disp.textContent += firstnum;
+   if (firsty.includes(".")) {
    
-   console.log(firstnum);
+      
+   
+      return disp.textContent += firstnum.toFixed(3);
+   }
+   
+  
+  disp.textContent += firstnum;
+
+ 
+   
+    console.log(firstnum);
+   
+   
+   
+   
+   
+   }
+   
+   if (operator === "-") {
+   
+      result = firstnum - secondnum;
+   
+      console.log (result);
+      
+    
+      
+      disp.textContent = "";
+   
+      operator = "";
+   
+   
+      firstNum = result;
+      
+      firstnum = result;
+   
+   
+   
+   
+      let firsty = result.toString();
+   
+   
+   
+      if (firsty.includes(".")) {
+      
+         
+      
+         return disp.textContent += firstnum.toFixed(3);
+      }
+      
+   
+   
+   
+   
+      
+      return disp.textContent += firstnum;
+      
+      console.log(firstnum);
+   
+   
+      
+   
+   }
+   
+   if (operator === "*") {
+   
+      result = firstnum * secondnum;
+   
+      console.log (result);
+      
+   
+      
+      disp.textContent = "";
+   
+      operator = "";
+   
+   
+      firstNum = result;
+      
+      firstnum = result;
+   
+   
+   
+   let firsty = result.toString();
+   
+   
+      if (firsty.includes(".")) {
+      
+         
+      
+         return disp.textContent += firstnum.toFixed(3);
+      }
+      
+      
+        disp.textContent += firstnum;
+      
+      console.log(firstnum);
+
+      return firstNum.textContent = "0";
+
+     
+   
+   
+      
+   
+   
+   }
+   
+   
+   
+   
+   
+   if (operator === "/" && secondnum !== 0) {
+   
+   
+      result = firstnum / secondnum;
+   
+      console.log (result);
+      
+ 
+      
+      disp.textContent = "";
+   
+      operator = "";
+   
+      firstNum = result;
+      
+      firstnum = result;
+   
+      let firsty = result.toString();
+   
+   
+   
+      if (firsty.includes(".")) {
+      
+         
+      
+         return disp.textContent += firstnum.toFixed(3);
+      }
+      
+      
+     return disp.textContent += firstnum;
+      
+      console.log(firstnum);
+   
+   
+      
+   }
+   
+   if (operator === "/" && secondnum === 0 || disp.textContent === "0" ) {
+      alert("No number can be divided by 0, don't you know?");
+   
+      return disp.textContent = "0";
+   }
+   
    
 
+   
+   };
+   
 
-}
+   return operate();
 
-
-operate(firstNum, secondNum, operator);
 
 
 };
@@ -256,7 +466,6 @@ operate(firstNum, secondNum, operator);
 
 
 
-});
 
 
 

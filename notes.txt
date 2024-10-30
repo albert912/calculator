@@ -49,7 +49,7 @@ a. first number should be entered and it should be displayed.
 
 b. a specific operator should be clicked.
 
-b.1. first number should be deleted when I click on operators.
+b.1. first number should be deleted when I click on operators (it should be either deleted or should be kept on a different place in display).
 
 b.2. first number should be saved in a variable.
 
@@ -59,9 +59,39 @@ c. second number should be entered it should be displayed.
 
 d. second number should be stored.
 
-e. two thing should happen after clicking equal sign
+e. two things should happen after clicking equal sign
 
  e.1. the result should be calculated by using the specific operator on b (b.3)
 
  e.2. the result should be shown on the calculator display.
 
+
+-------
+
+HINTS!!!
+
+In your second code block you would need to know what the previous operator was (appearing in the displayPrevious element), and use that for calling operate(). The operator that corresponds to the button that is being clicked, cannot be used for a calculation yet, as you don't have the second operand for it yet. So that operator should be saved in a variable for later use.
+
+-
+
+I recently made a calculator myself so ill tell you what i did. I created three variables first number, operator and second number. Now when a user presses an operator button a function is triggered which stores whatever value is there on the screen in the first variable if its empty. If the user presses the '=' button , a function is triggered which checks if the first variable has a value and if it has , whatever value is entered after the opperator button press is stored in the second variable and operation is performed. The result is then stored in the first variable, so that if needed u can operate upon the result or clear the screen. I dont know if it makes sense to you. Im also a beginner.
+
+----------
+
+LAST UPDATE ON HOW TO DO THE CALCULATOR
+
+--
+
+If an operator is clicked, the display value should be stored in the firstNum variable and the clicked operator should be stored in the operator variable.
+
+After the operator is clicked, the value on the display should be cleared (so that the second number should not concatenate with the first number) and the second number should be entered.
+
+Then equal sign (=) should be clicked. When this sign is clicked a function is triggered which checks whether the firstNum variable has a value and if it has, the value entered after operator button press should be stored in the secondNum variable and the operation(calculation)) should be done. The result is then stored in the first variable, so that if needed one can operate upon the result or clear the screen. Btw the result in the first variable should be shown on the display (I think with the same code that shows the values of number buttons on the calculator display).
+
+-----------------
+
+I know that I asked this question before, but I want ask this again.
+
+I managed to write a code that operates two number using the specific clicked operator and shows the result on the calculator display. In other words, I managed to create a basic calculator (there are some small issues, but I will fix them once I get an answer to my question). But I didn't use any function for making the calculation. 
+
+In the sixth instructions of the calculator project, this is written = ** ...utilize the operator that the user selects, and then operate() on the two numbers when the user presses the “=” key.**. You can see operate() here, so I assume that a function should be used for making the calculation. So, what I want to ask this, do you think I use should use function? I mean should I transform my current code (with which I  can already make a calculation by using if conditions&statements)  to a code which uses a function?
