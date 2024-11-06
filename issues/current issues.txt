@@ -1,0 +1,142 @@
+1. When I click "backspace" button it deletes even there is only one number in the display and shows blank screen.
+
+Possible solutions :
+
+a.1.
+
+(disp.textContent !== "0"|| disp.textContent !== "1" || disp.textContent !== "2" || disp.textContent !== "3" || disp.textContent !== "4" || disp.textContent !== "5" || disp.textContent !== "6" || disp.textContent !== "7" || disp.textContent !== "8" || disp.textContent !== "9")
+
+This doesn't work.
+
+a.2. document.addEventListener("keydown", (event) => {
+
+   if (event.key === "Backspace") {
+
+   
+      let text = disp.textContent;
+   
+      let backspace = text.slice(0, -1);
+      
+      /// find a solution later on how to set first digit numbers to 0 if this is clicked
+      
+      if (disp.textContent !== "0" && disp.textContent !== "1" && disp.textContent !== "2" && disp.textContent !== "3" && disp.textContent !== "4" && disp.textContent !== "5" && disp.textContent !== "6" && disp.textContent !== "7" && disp.textContent !== "8" && disp.textContent !== "9") {
+
+      disp.textContent = backspace;
+
+     }
+
+     else {
+
+      disp.textContent = 0;
+     }
+      
+    
+   }
+   
+   
+   });
+
+
+
+
+This often works but there are issues with it.
+
+I realized that this code also has the same issue with the text.lenght issue i.d. when I refresh the page and start to enter a number and click "Backspace" the display turns blank but when I click "clear" and then enter an one digit number the page doesn't turn blank.
+
+I've found out that the extra white space pops up after I enter a number when I refresh the page.
+
+b.Use text.lenght.
+
+
+document.addEventListener("keydown", (event) => {
+
+   if (event.key === "Backspace") {
+
+   
+      let text = disp.textContent;
+   
+      let backspace = text.slice(0, -1);
+      
+      /// find a solution later on how to set first digit numbers to 0 if this is clicked
+      
+      if (disp.textContent.length <= 1) {
+         
+         disp.textContent = 0;
+     
+     }
+
+    if (disp.textContent.length >= 2)  {
+   
+      disp.textContent = backspace;
+
+     }
+      
+    
+   }
+   
+   
+   });
+
+
+
+
+
+
+(Issues with  text.length --> when I refresh the page, after I enter a number on display, and additional white space pops up -this can be seen on elements section of the developer console-- and this neutralizes my code.
+
+I realized that when I press clear after refreshing the page, no additional white space pop ups and my code works.)
+
+ ---> I fixed this issue by removing the gap between quotes (" ") in result variables in event.key === number variables.
+
+
+
+05/11/2024
+
+Focus on this issues:
+
+Click event
+
+After the first operator, firstNum and operator is saved but secondNumber is not saved. After the second operator, firstNum is saved, but operator and secondNum is not saved. ( This is not an issue actually!)
+
+(There are some small issues, but I will try to fix them later.)
+
+Keydown event
+
+a.After the first operator only first num is saved, after the second operator only the result(firstNum) saved.
+
+a. is fixed. The issue happened because there was a gap between quotes (" ") in (secondNum!== " ") statement.
+
+
+b.When I click /, *, - operators, I get division error.
+
+
+
+b. is fixed. The issue happened for two reason. first one is the same as above (I forgot to do the same thing in other operator codes) and there was disp.textContent === "0" condition in the if statement which was related to the division operator in the calculate function.
+
+
+
+
+----
+2. When I try to divide a small number (such as 0.125) with a number, there are two decimals in the result.
+
+2.fixed = I realized that I forgot covering the code under the if statement with else condition.
+
+
+3. When I click - operator for the first time I get "0" on the display. If I click it second time after entering second number, the second number has - left to it.
+
+3.fixed = I realized that there is a space between quotes in if (firstNUm !== "") statement in if event.key === "-" condition.
+
+
+
+4. Entered numbers overflows from the screen.
+
+
+(Optional minor ones)
+
+a. In the ideal calculator , pops up after 3 number is entered to display.
+
+
+
+
+
+

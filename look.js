@@ -795,11 +795,8 @@ if (event.key === "6") {
      }
 
    
-     if (disp.textContent.length < 15) {
 
    disp.textContent += "6"
-
-     }
 }
 
 
@@ -827,11 +824,8 @@ if (event.key === "7") {
      }
 
    
-     if (disp.textContent.length < 15) {
 
    disp.textContent += "7"
-
-     }
 }
 
 if (event.key === "8") {
@@ -858,11 +852,8 @@ if (event.key === "8") {
      }
 
   
-     if (disp.textContent.length < 15) {
 
    disp.textContent += "8"
-
-     }
 }
 
 if (event.key === "9") {
@@ -889,11 +880,8 @@ if (event.key === "9") {
      }
 
   
-     if (disp.textContent.length < 15) {
 
    disp.textContent += "9"
-
-     }
 }
 
 
