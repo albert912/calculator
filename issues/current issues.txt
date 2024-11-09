@@ -135,6 +135,22 @@ b. is fixed. The issue happened for two reason. first one is the same as above (
 
 a. In the ideal calculator , pops up after 3 number is entered to display.
 
+----
+
+Styling Issues.
+
+1. width of the display wrap padding is shorter than the width of the button wrap padding.
+
+2. buttons do not cover the rest of the calculator div and appear as a grid. (*) (fixed)
+
+3. there is no vertical gap between buttons. (fixed)
+
+4. the "C" and "=" button do not fill the rest of their lines. (fixed)
+
+
+
+
+
 
 
 

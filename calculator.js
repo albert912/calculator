@@ -391,11 +391,16 @@ operator = "";
 
 let storeddisp;
 
+const operators = document.querySelectorAll(".operator");
 
-const container = document.querySelector(".operand");
+
+ operators.forEach(function (element) {
 
 
-container.addEventListener("click", function(event)  {
+
+   element.addEventListener("click", function () {
+
+
 
 
 
@@ -429,8 +434,8 @@ container.addEventListener("click", function(event)  {
   
       }
   
-  
-      let op = event.target.textContent;
+      let op = element.textContent;
+      
 
 
       if (operator === "") {
@@ -440,7 +445,7 @@ container.addEventListener("click", function(event)  {
          if (secondNum !== "") {
 
 
-//return calculate();
+return calculate();
 
    }
    
@@ -454,6 +459,7 @@ container.addEventListener("click", function(event)  {
    storeddisp = disp.textContent;
 
 
+});
 
 
    });
@@ -1200,7 +1206,6 @@ document.addEventListener("keydown",  (event) => {
 
 
 
-
  //const opparent = document.querySelector(".opparent")
 
 
@@ -1292,6 +1297,8 @@ document.addEventListener("keydown",  (event) => {
 //STEP 5.b = create a variable to store the display value.
 
   //let value = disp.value;
+
+
 
 
 
